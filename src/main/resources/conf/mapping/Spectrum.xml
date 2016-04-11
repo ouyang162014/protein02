@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Spectrum">
+	<resultMap type="cqupt.swxxxy.oyc.bean.SpectrumInfos" id="SpectrumInfoResult">
+		<id column="SPECTRUM_ID" jdbcType="INTEGER" property="id" />
+		<result column="ME_LEVEL" jdbcType="INTEGER" property="peptide" />
+		<result column="IDENTIFIED" jdbcType="INTEGER" property="fit" />
+		<result column="CHARGE" jdbcType="INTEGER" property="deltaMZ" />
+		<result column="PRECURSOR_M_Z" jdbcType="DOUBLE" property="charge" />
+		<result column="SUM_OF_INTENSITY" jdbcType="DOUBLE" property="precursorMZ" />
+		<result column="PEAKS" jdbcType="INTEGER" property="precusorm" />
+		<result column="PATH" jdbcType="VARCHAR" property="reaablemod" />
+		<result column="PRECURSOR_INTENSITY" jdbcType="DOUBLE" property="modifications" />
+		<result column="MODIFICATIONS" jdbcType="VARCHAR" property="missedcleave" />
+	</resultMap>
+	
+	<insert id="batchInsertSpectrums" parameterType="java.util.List" >
+		insert into t_spectrum(spectrum_id,identified,charge,precursor_m_z,sum_of_intensity,peaks,path)
+		values
+		<foreach collection="list" item="spectrumInfo" index="index"  separator=",">  
+        ( 
+        	#{spectrumInfo.id},#{spectrumInfo.identified},#{spectrumInfo.charge},#{spectrumInfo.precursorMZ},
+        	#{spectrumInfo.sumOfIntensity},#{spectrumInfo.peaks},#{spectrumInfo.path}
+         )  
+    	</foreach>   
+	</insert>
+	
+	<select id="selectLastSpectrumId"  resultMap="SpectrumInfoResult">
+		SELECT SPECTRUM_ID FROM t_spectrum ORDER BY SPECTRUM_ID DESC LIMIT 1;
+	</select>
+</mapper>

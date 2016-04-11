@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="FileInfo">
+	<resultMap type="cqupt.swxxxy.oyc.bean.FileInfo" id="FileInfoResult">
+		<id column="ID" jdbcType="INTEGER" property="id" />
+		<result column="NAME" jdbcType="VARCHAR" property="name" />
+		<result column="STATUS" jdbcType="VARCHAR" property="status" />
+		<result column="PUBLIC_TIME" jdbcType="VARCHAR" property="time" />
+	</resultMap>
+	
+	<select id="queryFileInfoList" parameterType="cqupt.swxxxy.oyc.bean.FileInfo" resultMap="FileInfoResult">
+		select fi.ID,fi.NAME,fi.STATE fi.PUBLIC_TIME from file_info fi where 1=1
+		<where>
+			<if test="name!=null and !&quot;quot;.equals(name.tream())">
+				and c.NAME=#{name}
+			</if>
+			<if test="description!=null and !&quot;quot;.equals(description.tream())">
+				and c.DESCRIPTION like '%' #{description} '%'
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insertFileInfo"  parameterType="cqupt.swxxxy.oyc.bean.FileInfo" >
+		insert into file_info(NAME,STATUS,PUBLIC_TIME)
+		values
+        ( 
+        	#{name},#{status},#{time}
+         ) 
+	</insert>
+</mapper>

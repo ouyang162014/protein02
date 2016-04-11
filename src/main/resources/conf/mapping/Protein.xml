@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ProteinInfos">
+	<resultMap type="cqupt.swxxxy.oyc.bean.ProteinInfos" id="ProteinInfosResult">
+		<id column="PROTEIN_ID" jdbcType="INTEGER" property="id" />
+		<result column="PROTEIN" jdbcType="VARCHAR" property="protein" />
+		<result column="STATUS" jdbcType="INTEGER" property="status" />
+		<result column="COVERAGE" jdbcType="FLOAT" property="coverage" />
+		<result column="PI" jdbcType="FLOAT" property="pi" />
+		<result column="THRESHOLD" jdbcType="FLOAT" property="threshold" />
+		<result column="PEPTIDES" jdbcType="INTEGER" property="peptides" />
+		<result column="DISTINCT_PEPTIDES" jdbcType="INTEGER" property="distinctPeptides" />
+		<result column="PTMS" jdbcType="INTEGER" property="ptms" />
+		<result column="GROUP_ID" jdbcType="INTEGER" property="groupId" />
+		<result column="NAME" jdbcType="VARCHAR" property="name" />
+	</resultMap>
+	
+	<insert id="batchInsertProteins"  parameterType="java.util.List" >
+		insert into t_protein (protein_id,protein,threshold,peptides,distinct_peptides,ptms)
+		values
+		<foreach collection="list" item="proteinInfo" index="index"  separator=",">  
+        ( 
+        	#{proteinInfo.id},#{proteinInfo.protein},#{proteinInfo.threshold},
+        	#{proteinInfo.peptides},#{proteinInfo.distinctPeptides},#{proteinInfo.ptms}
+         ) 
+    	</foreach> 
+	</insert>
+	
+	<select id="selectLastProteinId"  resultMap="ProteinInfosResult">
+		SELECT PROTEIN_ID, PROTEIN, STATUS, COVERAGE, PI, THRESHOLD, PEPTIDES, DISTINCT_PEPTIDES, PTMS, GROUP_ID, NAME FROM t_protein ORDER BY PROTEIN_ID DESC LIMIT 1;
+	</select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 命名空间 -->
+    <typeAliases>
+         <typeAlias alias="FileInfo" type="cqupt.swxxxy.oyc.bean.FileInfo"/> 
+         <typeAlias alias="ProteinInfos" type="cqupt.swxxxy.oyc.bean.ProteinInfos"/>
+         <typeAlias alias="PeptideInfos" type="cqupt.swxxxy.oyc.bean.PeptideInfos"/> 
+         <typeAlias alias="SpectrumInfos" type="cqupt.swxxxy.oyc.bean.SpectrumInfos"/>
+         <typeAlias alias="PepProPsmSubInfos" type="cqupt.swxxxy.oyc.bean.PepProPsmSubInfos"/>
+    </typeAliases>
+	
+	<environments default="development">  
+  		<environment id="development">
+	      	<transactionManager type="JDBC">
+	        	<property name="" value=""/>
+	      	</transactionManager>
+	      	<dataSource type="UNPOOLED">
+	        	<property name="driver" value="com.mysql.jdbc.Driver"/>
+	        	<property name="url" value="jdbc:mysql://127.0.0.1:3306/protein?useUnicode=true&amp;characterEncoding=UTF-8"/>
+	        	<property name="username" value="root"/>
+	        	<property name="password" value="root"/>
+	      	</dataSource>
+    	</environment>  
+ 	</environments>  
+	
+ 	<!-- 映射map -->
+ 	<mappers>  
+  		<!--fileMapper.xml装载进来 同等于把“dao”的实现装载进来 -->  
+  		<mapper resource="conf/mapping/FileInfo.xml" />
+  		<mapper resource="conf/mapping/Protein.xml" />
+  		<mapper resource="conf/mapping/Peptide.xml" />
+  		<mapper resource="conf/mapping/Spectrum.xml" />
+  		<mapper resource="conf/mapping/PepProPsmSub.xml" />
+ 	</mappers>  
+	
+</configuration>

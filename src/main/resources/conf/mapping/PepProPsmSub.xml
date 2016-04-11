@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PepProPsmSubInfos">
+	<resultMap type="cqupt.swxxxy.oyc.bean.PepProPsmSubInfos" id="PepProPsmSubInfosResult">
+		<id column="ID" jdbcType="INTEGER" property="id" />
+		<result column="PROTEIN_ID" jdbcType="INTEGER" property="proteinId" />
+		<result column="PEPTIDE_ID" jdbcType="INTEGER" property="peptideId" />
+		<result column="SPECTRUM_ID" jdbcType="INTEGER" property="spectrumId" />
+		<result column="SUB_ID" jdbcType="INTEGER" property="subId" />
+	</resultMap>
+	
+	<insert id="batchInsertPepProPsmSub"  parameterType="java.util.List" >
+		insert into t_pep_pro_psm_sub(ID,PROTEIN_ID,PEPTIDE_ID,SPECTRUM_ID,SUB_ID)
+		values
+		<foreach collection="list" item="pepProPsmSubInfo" index="index"  separator=",">  
+        ( 
+        	#{pepProPsmSubInfo.id},#{pepProPsmSubInfo.proteinId},#{pepProPsmSubInfo.peptideId},#{pepProPsmSubInfo.spectrumId},#{pepProPsmSubInfo.subId}
+         ) 
+    	</foreach> 
+	</insert>
+	
+	<select id="selectLastPepProPsmSubId"  resultMap="PepProPsmSubInfosResult">
+		SELECT ID FROM t_pep_pro_psm_sub ORDER BY PROTEIN_ID DESC LIMIT 1;
+	</select>
+</mapper>

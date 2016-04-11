@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Peptide">
+	<resultMap type="cqupt.swxxxy.oyc.bean.PeptideInfos" id="PeptideInfoResult">
+		<id column="PEPTIDE_ID" jdbcType="INTEGER" property="id" />
+		<result column="PEPTIDE" jdbcType="VARCHAR" property="peptide" />
+		<result column="FIT" jdbcType="INTEGER" property="fit" />
+		<result column="DELTA_M_Z" jdbcType="FLOAT" property="deltaMZ" />
+		<result column="CHARGE" jdbcType="INTEGER" property="charge" />
+		<result column="PRECURSOR_M_Z" jdbcType="DOUBLE" property="precursorMZ" />
+		<result column="PRECUSORM" jdbcType="FLOAT" property="precusorm" />
+		<result column="REDABLEMOD" jdbcType="VARCHAR" property="reaablemod" />
+		<result column="MODIFICATIONS" jdbcType="VARCHAR" property="modifications" />
+		<result column="MISSEDCLEAVE" jdbcType="INTEGER" property="missedcleave" />
+		<result column="LONS" jdbcType="INTEGER" property="lons" />
+		<result column="MASCOT_SCORE" jdbcType="FLOAT" property="mascotScore" />
+		<result column="LENGTH" jdbcType="INTEGER" property="length" />
+		<result column="START" jdbcType="INTEGER" property="start" />
+		<result column="STOP" jdbcType="INTEGER" property="stop" />
+		<result column="PSM" jdbcType="INTEGER" property="psm" />
+		<result column="PI" jdbcType="FLOAT" property="pi" />
+		<result column="IDENTIFICATION_ID" jdbcType="INTEGER" property="identificationId" />
+		<result column="CUTTING_SITE" jdbcType="INTEGER" property="cuttingSite" />
+	</resultMap>
+	
+	<insert id="batchInsertPeptides" parameterType="java.util.List" >
+		insert into t_peptide(peptide_id,peptide,charge,precursor_m_z,modifications,lons,mascot_score,length,start,stop,psm,identification_id)
+		values
+		<foreach collection="list" item="peptideInfo" index="index"  separator=",">  
+        ( 
+        	#{peptideInfo.id},#{peptideInfo.peptide},#{peptideInfo.charge},#{peptideInfo.precursorMZ},#{peptideInfo.modifications},
+        	#{peptideInfo.lons},#{peptideInfo.mascotScore},#{peptideInfo.length},#{peptideInfo.start},
+        	#{peptideInfo.stop},#{peptideInfo.psm},#{peptideInfo.identificationId}
+         )  
+    	</foreach>
+	</insert>
+	
+	<select id="selectLastPeptideId"  resultMap="PeptideInfoResult">
+		SELECT PEPTIDE_ID, PEPTIDE FROM t_peptide ORDER BY PEPTIDE_ID DESC LIMIT 1;
+	</select>
+</mapper>

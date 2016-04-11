@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SpectrumPicture.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body>
+
+	<div id="lorikeet">
+		<div id="lorikeet_content_1" class="lorikeet">
+			<table cellpadding="0" cellspacing="5" class="lorikeet-outer-table">
+				<tbody>
+					<tr>
+						<td colspan="3" class="bar"></td>
+					</tr>
+					<tr>
+						<td rowspan="2" valign="top" id="optionsTable_1">
+							<table cellpadding="2" cellspacing="2">
+								<tbody>
+									<tr>
+										<td class="optionCell"><b>Ions:</b>
+											<div id="ion_choice_1" style="margin-bottom: 10px">
+												<!-- a ions -->
+												<nobr>
+													<span style="font-weight: bold;">a</span> <input
+														type="checkbox" value="1" id="a_1">1<sup>+</sup> <input
+														type="checkbox" value="2" id="a_2">2<sup>+</sup> <input
+														type="checkbox" value="3" id="a_3">3<sup>+</sup>
+												</nobr>
+												<br>
+												<!-- b ions -->
+												<nobr>
+													<span style="font-weight: bold;">b</span> <input
+														type="checkbox" value="1" id="b_1" checked="checked">1<sup>+</sup>
+													<input type="checkbox" value="2" id="b_2">2<sup>+</sup>
+													<input type="checkbox" value="3" id="b_3">3<sup>+</sup>
+												</nobr>
+												<br>
+												<!-- c ions -->
+												<nobr>
+													<span style="font-weight: bold;">c</span> <input
+														type="checkbox" value="1" id="c_1">1<sup>+</sup> <input
+														type="checkbox" value="2" id="c_2">2<sup>+</sup> <input
+														type="checkbox" value="3" id="c_3">3<sup>+</sup>
+												</nobr>
+												<br>
+												<!-- x ions -->
+												<nobr>
+													<span style="font-weight: bold;">x</span> <input
+														type="checkbox" value="1" id="x_1">1<sup>+</sup> <input
+														type="checkbox" value="2" id="x_2">2<sup>+</sup> <input
+														type="checkbox" value="3" id="x_3">3<sup>+</sup>
+												</nobr>
+												<br>
+												<!-- y ions -->
+												<nobr>
+													<span style="font-weight: bold;">y</span> <input
+														type="checkbox" value="1" id="y_1" checked="checked">1<sup>+</sup>
+													<input type="checkbox" value="2" id="y_2">2<sup>+</sup>
+													<input type="checkbox" value="3" id="y_3">3<sup>+</sup>
+												</nobr>
+												<br>
+												<!-- z ions -->
+												<nobr>
+													<span style="font-weight: bold;">z</span> <input
+														type="checkbox" value="1" id="z_1">1<sup>+</sup> <input
+														type="checkbox" value="2" id="z_2">2<sup>+</sup> <input
+														type="checkbox" value="3" id="z_3">3<sup>+</sup>
+												</nobr>
+												<br> <span id="deselectIonsLink_1"
+													style="font-size:8pt;text-decoration: underline; color:sienna;cursor:pointer;">[Deselect
+													All]</span>
+											</div> <span style="font-weight: bold;">Neutral Loss:</span>
+											<div id="nl_choice_1">
+												<nobr>
+													<input type="checkbox" value="*" id="*"> NH<sub>3</sub>
+													(<span style="font-weight: bold;">*</span>)
+												</nobr>
+												<br>
+												<nobr>
+													<input type="checkbox" value="o" id="o"> H<sub>2</sub>O
+													(<span style="font-weight: bold;">o</span>)
+												</nobr>
+												<br>
+												<nobr>
+													<input type="checkbox" value="p" id="p"> H<sub>3</sub>PO<sub>4</sub>
+													(<span style="font-weight: bold;">p</span>)
+												</nobr>
+											</div> <input type="checkbox" value="true" checked=""
+											id="immoniumIons_1"><span style="font-weight:bold;">Immonium
+												ions</span><br>
+										<input type="checkbox" value="true" id="reporterIons_1"><span
+											style="font-weight:bold;">Reporter ions</span>
+										</td>
+									</tr>
+									<tr>
+										<td class="optionCell">
+											<div>
+												Mass Type:<br>
+												<nobr>
+													<input type="radio" name="massTypeOpt_1" value="mono"
+														checked="checked"><span style="font-weight: bold;">Mono</span>
+													<input type="radio" name="massTypeOpt_1" value="avg"><span
+														style="font-weight: bold;">Avg</span>
+												</nobr>
+											</div>
+											<div style="margin-top:10px;">
+												<nobr>
+													Mass Tol: <input id="massError_1" type="text" value="0.5"
+														style="width:3em;">
+												</nobr>
+												<br>
+												<input type="radio" name="massErrorUnit_1" value="Th"
+													checked="checked"><span style="font-weight: bold;">Th</span>
+												<input type="radio" name="massErrorUnit_1" value="ppm"><span
+													style="font-weight: bold;">ppm</span>
+											</div>
+											<div style="margin-top:10px;" align="center">
+												<input id="update_1" type="button" value="Update">
+											</div></td>
+									</tr>
+									<tr>
+										<td class="optionCell">
+											<div>
+												Peak Assignment:<br> <input type="radio"
+													name="peakAssignOpt_1" value="intense" checked="checked"><span
+													style="font-weight: bold;">Most Intense</span><br> <input
+													type="radio" name="peakAssignOpt_1" value="close"><span
+													style="font-weight: bold;">Nearest Match</span><br> <input
+													type="checkbox" value="true" checked="" id="peakDetect_1"><span
+													style="font-weight:bold;">Peak Detect</span>
+											</div></td>
+									</tr>
+									<tr>
+										<td class="optionCell">
+											<div>
+												Peak Labels:<br> <input type="radio"
+													name="peakLabelOpt_1" value="ion" checked="checked"><span
+													style="font-weight: bold;">Ion</span><input type="radio"
+													name="peakLabelOpt_1" value="mz"><span
+													style="font-weight: bold;">m/z</span><br>
+												<input type="radio" name="peakLabelOpt_1" value="none"><span
+													style="font-weight: bold;">None</span>
+											</div></td>
+									</tr>
+									<tr>
+										<td class="optionCell">
+											<div>
+												Width: <span id="slider_width_val_1">700</span>
+											</div>
+											<div id="slider_width_1" style="margin-bottom:15px;"
+												class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+												<a href="#"
+													class="ui-slider-handle ui-state-default ui-corner-all"
+													style="left: 42.8571%;"></a>
+											</div>
+											<div>
+												Height: <span id="slider_height_val_1">450</span>
+											</div>
+											<div id="slider_height_1"
+												class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+												<a href="#"
+													class="ui-slider-handle ui-state-default ui-corner-all"
+													style="left: 38.8889%;"></a>
+											</div></td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+						<td
+							style="background-color: white; padding:5px; border:1px dotted #cccccc;"
+							valign="bottom" align="center">
+							<div id="seqinfo_1" style="width:100%;">
+								<div>
+									<span style="font-weight:bold; color:#8B0000;">SLEDLDKEMADYFEK</span>,
+									MH+ 1832.8259, m/z 916.9166
+								</div>
+							</div>
+							<div id="fileinfo_1" style="width:100%;">
+								<div style="margin-top:5px;" class="font_small">File:
+									22July09-FASP-1-02, Scan: 36578, Exp. m/z: 917.849975586,
+									Charge: 2</div>
+							</div></td>
+						<td rowspan="2" valign="top" id="ionTableLoc1_1">
+							<div id="ionTableDiv_1">
+								<table id="ionTable_1" cellpadding="2"
+									class="font_small ionTable">
+									<thead>
+										<tr>
+											<th>b+</th>
+											<th>#</th>
+											<th>Seq</th>
+											<th>#</th>
+											<th>y+</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="">88.0393</td>
+											<td class="numCell">1</td>
+											<td class="seq">S</td>
+											<td class="numCell">15</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="">201.1234</td>
+											<td class="numCell">2</td>
+											<td class="seq">L</td>
+											<td class="numCell">14</td>
+											<td class="">1745.7938</td>
+										</tr>
+										<tr>
+											<td class="">330.1660</td>
+											<td class="numCell">3</td>
+											<td class="seq">E</td>
+											<td class="numCell">13</td>
+											<td class="">1632.7098</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">445.1929</td>
+											<td class="numCell">4</td>
+											<td class="seq">D</td>
+											<td class="numCell">12</td>
+											<td class="">1503.6672</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">558.2770</td>
+											<td class="numCell">5</td>
+											<td class="seq">L</td>
+											<td class="numCell">11</td>
+											<td class="matchIon" style="background-color:#ff0000;">1388.6402</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">673.3039</td>
+											<td class="numCell">6</td>
+											<td class="seq">D</td>
+											<td class="numCell">10</td>
+											<td class="matchIon" style="background-color:#ff0000;">1275.5562</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">801.3989</td>
+											<td class="numCell">7</td>
+											<td class="seq">K</td>
+											<td class="numCell">9</td>
+											<td class="matchIon" style="background-color:#ff0000;">1160.5292</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">930.4415</td>
+											<td class="numCell">8</td>
+											<td class="seq">E</td>
+											<td class="numCell">8</td>
+											<td class="matchIon" style="background-color:#ff0000;">1032.4343</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">1061.4820</td>
+											<td class="numCell">9</td>
+											<td class="seq">M</td>
+											<td class="numCell">7</td>
+											<td class="matchIon" style="background-color:#ff0000;">903.3917</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">1132.5191</td>
+											<td class="numCell">10</td>
+											<td class="seq">A</td>
+											<td class="numCell">6</td>
+											<td class="matchIon" style="background-color:#ff0000;">772.3512</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">1247.5460</td>
+											<td class="numCell">11</td>
+											<td class="seq">D</td>
+											<td class="numCell">5</td>
+											<td class="matchIon" style="background-color:#ff0000;">701.3141</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">1410.6093</td>
+											<td class="numCell">12</td>
+											<td class="seq">Y</td>
+											<td class="numCell">4</td>
+											<td class="matchIon" style="background-color:#ff0000;">586.2871</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">1557.6778</td>
+											<td class="numCell">13</td>
+											<td class="seq">F</td>
+											<td class="numCell">3</td>
+											<td class="matchIon" style="background-color:#ff0000;">423.2238</td>
+										</tr>
+										<tr>
+											<td class="matchIon" style="background-color:#0000ff;">1686.7203</td>
+											<td class="numCell">14</td>
+											<td class="seq">E</td>
+											<td class="numCell">2</td>
+											<td class="">276.1554</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td class="numCell">15</td>
+											<td class="seq">K</td>
+											<td class="numCell">1</td>
+											<td class="">147.1128</td>
+										</tr>
+									</tbody>
+								</table>
+								<span id="moveIonTable_1" class="font_small link">[Click]</span>
+								<span class="font_small">to move table</span>
+								<div id="modInfo_1" style="margin-top:5px;">
+									<div></div>
+									<div style="margin-top:5px;">
+										Static Modifications:
+										<div>
+											<b>C: 57</b>
+										</div>
+									</div>
+								</div>
+							</div></td>
+					</tr>
+					<tr>
+						<td
+							style="background-color: white; padding:5px; border:1px dotted #cccccc;"
+							valign="top" align="center">
+							<div id="msmsplot_1" align="bottom"
+								style="width: 700px; height: 450px; padding: 0px; position: relative;">
+								<canvas class="flot-base" width="700" height="450"
+									style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 700px; height: 450px;"></canvas>
+								<div class="flot-text"
+									style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+									<div class="flot-x-axis flot-x1-axis xAxis x1Axis"
+										style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 435px; left: 88px; text-align: center;">400</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 435px; left: 176px; text-align: center;">600</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 435px; left: 264px; text-align: center;">800</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 435px; left: 349px; text-align: center;">1000</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 435px; left: 437px; text-align: center;">1200</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 435px; left: 525px; text-align: center;">1400</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 435px; left: 613px; text-align: center;">1600</div>
+									</div>
+									<div class="flot-y-axis flot-y1-axis yAxis y1Axis"
+										style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 424px; left: 13px; text-align: right;">0%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 386px; left: 7px; text-align: right;">10%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 347px; left: 7px; text-align: right;">20%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 309px; left: 7px; text-align: right;">30%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 270px; left: 7px; text-align: right;">40%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 232px; left: 7px; text-align: right;">50%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 193px; left: 7px; text-align: right;">60%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 155px; left: 7px; text-align: right;">70%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 116px; left: 7px; text-align: right;">80%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 78px; left: 7px; text-align: right;">90%</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; top: 39px; left: 1px; text-align: right;">100%</div>
+									</div>
+								</div>
+								<canvas class="flot-overlay" width="700" height="450"
+									style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 700px; height: 450px;"></canvas>
+							</div>
+							<div id="viewOptionsDiv_1" align="top" style="margin-top:15px;">
+								<nobr>
+									<span
+										style="width:100%; font-size:8pt; margin-top:5px; color:sienna;">Click
+										and drag in the plot to zoom</span> X:<input id="zoom_x_1"
+										type="checkbox" value="X" checked="checked"> &nbsp;Y:<input
+										id="zoom_y_1" type="checkbox" value="Y"> &nbsp;<input
+										id="resetZoom_1" type="button" value="Zoom Out">
+									&nbsp;<input id="printLink_1" type="button" value="Print">
+								</nobr>
+								&nbsp;&nbsp;
+								<nobr>
+									<input id="enableTooltip_1" type="checkbox">Enable
+									tooltip
+								</nobr>
+								<nobr>
+									<input id="massErrorPlot_option_1" type="checkbox">Plot
+									mass error
+								</nobr>
+								<br>
+							</div>
+							<div id="massErrorPlot_1"
+								style="width: 700px; height: 100px; padding: 0px; position: relative; display: none;">
+								<canvas class="flot-base" width="700" height="100"
+									style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 700px; height: 100px;"></canvas>
+								<div class="flot-text"
+									style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+									<div class="flot-x-axis flot-x1-axis xAxis x1Axis"
+										style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 85px; left: 88px; text-align: center;">400</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 85px; left: 176px; text-align: center;">600</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 85px; left: 264px; text-align: center;">800</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 85px; left: 349px; text-align: center;">1000</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 85px; left: 437px; text-align: center;">1200</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 85px; left: 525px; text-align: center;">1400</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 77px; top: 85px; left: 613px; text-align: center;">1600</div>
+									</div>
+									<div class="flot-y-axis flot-y1-axis yAxis y1Axis"
+										style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 25px; top: 69px; left: 1px; text-align: right;">-0.10</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 25px; top: 50px; left: 1px; text-align: right;">-0.05</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 25px; top: 31px; left: 4px; text-align: right;">0.00</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 25px; top: 11px; left: 4px; text-align: right;">0.05</div>
+									</div>
+								</div>
+								<canvas class="flot-overlay" width="700" height="100"
+									style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 700px; height: 100px;"></canvas>
+								<div id="massErrorPlot_unit_1" class="link"
+									style="position:absolute; left:32px;top:11px;background-color:yellow; font-style:italic">Th</div>
+							</div>
+							<div id="msPlot_1"
+								style="width: 700px; height: 100px; padding: 0px; position: relative;">
+								<canvas class="flot-base" width="700" height="100"
+									style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 700px; height: 100px;"></canvas>
+								<div class="flot-text"
+									style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+									<div class="flot-x-axis flot-x1-axis xAxis x1Axis"
+										style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 28px; text-align: center;">913</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 94px; text-align: center;">914</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 161px; text-align: center;">915</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 227px; text-align: center;">916</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 294px; text-align: center;">917</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 360px; text-align: center;">918</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 426px; text-align: center;">919</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 493px; text-align: center;">920</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 559px; text-align: center;">921</div>
+										<div class="flot-tick-label tickLabel"
+											style="position: absolute; max-width: 58px; top: 85px; left: 626px; text-align: center;">922</div>
+									</div>
+								</div>
+								<canvas class="flot-overlay" width="700" height="100"
+									style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 700px; height: 100px;"></canvas>
+								<div
+									style="position:absolute;left:363px;top:46px;color:#000;font-size:smaller">917.85</div>
+								<div
+									style="position:absolute;left:31px;top:12px;color:#666;font-size:smaller">MS1
+									scan: 36571 RT: 4900.87000</div>
+								<div id="ms1plot_zoom_out_1" class="zoom_out_link"
+									style="position:absolute; left:651px;top:12px;"></div>
+							</div></td>
+					</tr>
+					<tr>
+						<td colspan="3" class="bar noprint" valign="top" align="center"
+							id="ionTableLoc2_1">
+							<div align="center" style="width:100%;font-size:10pt;"></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
